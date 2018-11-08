@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SixthActivity">
+
+    <!--
+        md添加了三个虚拟辅助类，Guideline,Barrier,Group
+        它们是虚拟对象，并不会占用实际的空间，但可以帮助我们更精细地控制布局。
+        Guideline与 LinearLayout 类似可以设置水平或垂直方向
+        Guideline 具有以下的三种定位方式：
+            layout_constraintGuide_begin 距离父容器起始位置的距离（左侧或顶部）
+            layout_constraintGuide_end 距离父容器结束位置的距离（右侧或底部）
+            layout_constraintGuide_percent 距离父容器宽度或高度的百分比
+
+        Barrier 直译为障碍、障碍。Barrier的介入可以完成很多其他布局不能完成的功能
+     -->
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guide"
+        android:layout_width="wrap_content"
+        app:layout_constraintGuide_percent="0.2"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        />
+
+    <!--
+        layout_constraintDimensionRatio
+        意思是说约束布局支持子控件设置宽高比，前提条件下至少需要将宽高中的一个设置为0dp
+        app:layout_constraintWidth_percent="0.5"
+        宽度是父剩余空间的比例
+        app:layout_constraintHorizontal_bias="0"
+        左对齐
+    -->
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/mountain"
+        android:scaleType="centerCrop"
+
+        app:layout_constraintDimensionRatio="H,16:9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintWidth_percent="0.5"
+        app:layout_constraintHorizontal_bias="0"
+
+        app:layout_constraintTop_toBottomOf="@+id/guide"
+        />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ThirdActivity">
+
+    <!--
+        chains 链使我们能够对一组在水平或垂直方向互相关联的控件的属性进行统一管理。
+        成为链的条件：一组控件它们通过一个双向的约束关系链接起来。并且链的属性是由一条链的头节点控制
+        链的样式：Spread，Spread Inside, Weighted, Packed, Packed Chain with Bias
+     -->
+    <Button
+        android:id="@+id/bt_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A"
+
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/bt_2"
+        />
+
+    <Button
+        android:id="@+id/bt_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="B"
+        app:layout_constraintLeft_toRightOf="@+id/bt_1"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+</android.support.constraint.ConstraintLayout>

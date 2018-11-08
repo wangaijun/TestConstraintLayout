@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="锚点"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+         />
+
+    <!--
+        tv的中心点作为圆心
+        半径是100dp
+        12点是0度，度数计算是按顺时针进行的
+    -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hello"
+        app:layout_constraintCircle="@id/tv"
+        app:layout_constraintCircleRadius="100dp"
+        app:layout_constraintCircleAngle="180"
+        />
+
+    <!-- 过长的内容会使左右约束失效，
+        使用app:layout_constrainedWidth强制实现左右约束，
+        缺点：会导致渲染变慢，变慢时常可以忽略不计
+     -->
+    <Button
+        android:id="@+id/bt_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123456789123456789123456789123456789123456789123456789123456789"
+        app:layout_constraintLeft_toRightOf="@id/tv"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv"
+        app:layout_constrainedWidth="true"
+        />
+
+</android.support.constraint.ConstraintLayout>
